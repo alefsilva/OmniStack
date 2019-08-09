@@ -20,3 +20,4 @@ module.exports = {
     return res.json(dev); // the axios return the data inside data object
   }
 };
+// scope: INDEX, SHOW, STORE, UPDATE, DELETE
