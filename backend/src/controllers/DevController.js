@@ -4,13 +4,13 @@ const Dev = require("../models/Dev");
 module.exports = {
   async index(req, res) {
     const { user_id } = req.headers;
-    console.log('user_id: ', user_id);
+    console.log("user_id: ", user_id);
     const loggedDev = await Dev.findById(user_id);
-    const users  = await Dev.find({
+    const users = await Dev.find({
       $and: [
-        { _id: { $ne: user_id }}, // filter $ne(not equal) the user_id
-        { _id: { $nin: loggedDev.likes }}, // filter to avoid all user that already have like with $nin(not in)
-        { _id: { $nin: loggedDev.deslikes }}, // the same filter as above for deslikes
+        { _id: { $ne: user_id } }, // filter $ne(not equal) the user_id
+        { _id: { $nin: loggedDev.likes } }, // filter to avoid all user that already have like with $nin(not in)
+        { _id: { $nin: loggedDev.deslikes } } // the same filter as above for deslikes
       ]
     });
     return res.json(users);
