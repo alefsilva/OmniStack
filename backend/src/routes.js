@@ -6,8 +6,8 @@ routes.get("/", (req, res) => {
 });
 
 routes.post("/devs", (req, res) => {
-    console.log('body:', req.body); // by default it will return 'body: undefined' because the express don't recognize the json format automatically
-    return res.json({ oks: true });
+  console.log("body:", req.body); // by default it will return 'body: undefined' because the express don't recognize the json format automatically
+  return res.json(Object.assign(req.body, { ok: true }));
 });
 
 module.exports = routes;
