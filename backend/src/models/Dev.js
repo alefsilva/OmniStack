@@ -20,7 +20,7 @@ const DevSchema = new Schema(
         ref: "Dev" // it's like a relation
       }
     ], // [] symbolize a vetor to reference several Devs
-    deslikes: [
+    dislikes: [
       {
         type: Schema.Types.ObjectId,
         ref: "Dev"
