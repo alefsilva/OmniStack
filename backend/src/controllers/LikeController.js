@@ -2,7 +2,11 @@ const Dev = require("../models/Dev");
 
 module.exports = {
   store(req, res) {
-    console.log('param devId: ', req.params.devId);
+    const { devId} = req.params;
+    const { user } = req.headers;
+    console.log('param devId: ', devId);
+    console.log('headers user: ', user);
+
     return res.json({ok: true});
   }
 };
