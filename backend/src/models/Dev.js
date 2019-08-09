@@ -9,14 +9,14 @@ const DevSchema = new Schema(
       type: String,
       required: true
     },
-    bio: String, // with is not required, you can pass the type directly without need a {}
+    bio: String, // if is not required, you can pass the type directly without need a {}
     avatar: {
       type: String,
       required: true
     },
     likes: [
       {
-        type: Schema.Types.ObjectId, // is the format of the id of MongDB like the "_id": "5d4d7f415714080a5c0d2e09",
+        type: Schema.Types.ObjectId, // is the format of the id of MongoDB like the "_id": "5d4d7f415714080a5c0d2e09",
         ref: "Dev" // it's like a relation
       }
     ], // [] symbolize a vetor to reference several Devs
