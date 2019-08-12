@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+button,
+label {
+  cursor: pointer;
+}
+
 html,
 body,
 #root {
