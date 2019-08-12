@@ -1,5 +1,7 @@
 import React from "react";
 
-export default function Main() {
-  return <h1>Main works!</h1>;
+export default function Main(props) {
+  return (
+    <h1>routeId: {props.match.params.routeId}</h1>
+  );
 }
