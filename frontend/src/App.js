@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
 
-import Login from "./pages/login/Login";
+import Routes from "./Routes";
 
 function App() {
-  return <Login />;
+  return <Routes />;
 }
 
 export default App;
