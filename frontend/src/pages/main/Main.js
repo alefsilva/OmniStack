@@ -16,7 +16,9 @@ export default function Main(props) {
             <strong>João Pedro Schmitz</strong>
             <p>
               A Front End developer that is an enthusiast of new technologies
-              and a JavaScript fan.
+              and a JavaScript fan.A Front End developer that is an enthusiast
+              of new technologies and a JavaScript fanA Front End developer that
+              is an enthusiast of new technologies and a JavaScript fan
             </p>
           </footer>
 
