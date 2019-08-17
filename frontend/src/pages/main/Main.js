@@ -35,6 +35,12 @@ export default function Main(props) {
         user_id: props.match.params.routeId
       }
     }); // the second param of the method post is the body
+
+    /**
+     * I can't change the useState users directly... users.push, users = []... no!
+     * Use the setUsers instead.
+     * */
+    setUsers(users.filter(user => user._id != id));
   }
 
   return (
