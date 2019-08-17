@@ -47,28 +47,32 @@ export default function Main(props) {
     <div className="wrap-main">
       <h1>routeId: {props.match.params.routeId}</h1>
       <img src={logo} alt="Tindev" />
-      <ul>
-        {users.map((
-          user // (user, key)
-        ) => (
-          <li key={user._id}>
-            {/*key={key}*/}
-            <img src={user.avatar} alt={user.name} />
-            <footer>
-              <strong>{user.name}</strong>
-              <p>{user.bio}</p>
-            </footer>
-            <div className="wrap-buttons">
-              <button type="button" onClick={() => handleDislike(user._id)}>
-                <img src={dislike} alt="Dislike" />
-              </button>
-              <button type="button" onClick={() => handleLike(user._id)}>
-                <img src={like} alt="Like" />
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+      {users.length > 0 ? (
+        <ul>
+          {users.map((
+            user // (user, key)
+          ) => (
+            <li key={user._id}>
+              {/*key={key}*/}
+              <img src={user.avatar} alt={user.name} />
+              <footer>
+                <strong>{user.name}</strong>
+                <p>{user.bio}</p>
+              </footer>
+              <div className="wrap-buttons">
+                <button type="button" onClick={() => handleDislike(user._id)}>
+                  <img src={dislike} alt="Dislike" />
+                </button>
+                <button type="button" onClick={() => handleLike(user._id)}>
+                  <img src={like} alt="Like" />
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div className="empty">Acabou :(</div>
+      )}
     </div>
   );
 }
