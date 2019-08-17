@@ -65,3 +65,10 @@
 .wrap-main ul li .wrap-buttons button:hover img {
   transform: translateY(-5px);
 }
+
+.wrap-main .empty {
+  font-size: 32px;
+  color: #999;
+  font-weight: bold;
+  margin-top: 300px;
+}

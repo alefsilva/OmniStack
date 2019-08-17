@@ -45,7 +45,6 @@ export default function Main(props) {
 
   return (
     <div className="wrap-main">
-      <h1>routeId: {props.match.params.routeId}</h1>
       <img src={logo} alt="Tindev" />
       {users.length > 0 ? (
         <ul>
