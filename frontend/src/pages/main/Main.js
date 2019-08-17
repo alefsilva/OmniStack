@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 import like from "../../assets/like.svg";
 import dislike from "../../assets/dislike.svg";
@@ -7,6 +7,8 @@ import "./Main.css";
 import api from '../../services/Api';
 
 export default function Main(props) {
+  const [users, setUsers] = useState([]);
+
   useEffect(() => {
     (async function loadUsers() {
       console.log('props.match.params.routeId', props.match.params.routeId);
@@ -16,6 +18,7 @@ export default function Main(props) {
         }
       });
       console.log('response.data', response.data);
+      setUsers(response.data);
     })(); // it will execute this function automatically
 
     //loadUsers();
@@ -27,7 +30,7 @@ export default function Main(props) {
       <img src={logo} alt="Tindev" />
       <ul>
         <li>
-          <img src="https://avatars2.githubusercontent.com/u/861751?v=4" />
+          <img src={users[0] ? users[0].avatar : 'x'} />
           <footer>
             <strong>João Pedro Schmitz</strong>
             <p>
