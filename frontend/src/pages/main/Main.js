@@ -31,15 +31,10 @@ export default function Main(props) {
       <ul>
         {users.map((user, key) => (
           <li key={key}>
-            <img src={user.avatar} />
+            <img src={user.avatar} alt={user.name} />
             <footer>
-              <strong>João Pedro Schmitz</strong>
-              <p>
-                A Front End developer that is an enthusiast of new technologies
-                and a JavaScript fan.A Front End developer that is an enthusiast
-                of new technologies and a JavaScript fanA Front End developer
-                that is an enthusiast of new technologies and a JavaScript fan
-              </p>
+              <strong>{user.name}</strong>
+              <p>{user.bio}</p>
             </footer>
 
             <div className="wrap-buttons">
