@@ -29,8 +29,8 @@ export default function Main(props) {
       <h1>routeId: {props.match.params.routeId}</h1>
       <img src={logo} alt="Tindev" />
       <ul>
-        {users.map((user, key) => (
-          <li key={key}>
+        {users.map(user => ( // (user, key)
+          <li key={user._id}> {/*key={key}*/}
             <img src={user.avatar} alt={user.name} />
             <footer>
               <strong>{user.name}</strong>
