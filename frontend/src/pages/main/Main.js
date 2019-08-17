@@ -30,6 +30,11 @@ export default function Main(props) {
 
   async function handleDislike(id) {
     console.log("dislike", id);
+    await api.post(`devs/${id}/dislikes`, null, {
+      headers: {
+        user_id: props.match.params.routeId
+      }
+    }); // the second param of the method post is the body
   }
 
   return (
