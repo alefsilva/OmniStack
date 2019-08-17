@@ -42,3 +42,26 @@
   color: #999;
   margin-top: 5px;
 }
+
+.wrap-main ul li .wrap-buttons {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.wrap-main ul li .wrap-buttons button {
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.wrap-main ul li .wrap-buttons button img {
+  transition: all 0.2s;
+}
+
+.wrap-main ul li .wrap-buttons button:hover img {
+  transform: translateY(-5px);
+}

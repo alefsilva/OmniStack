@@ -22,7 +22,7 @@ export default function Main(props) {
             </p>
           </footer>
 
-          <div className="buttons">
+          <div className="wrap-buttons">
             <button type="button">
               <img src={dislike} alt="Dislike" />
             </button>
@@ -41,7 +41,7 @@ export default function Main(props) {
             </p>
           </footer>
 
-          <div className="buttons">
+          <div className="wrap-buttons">
             <button type="button">
               <img src={dislike} alt="Dislike" />
             </button>
@@ -60,7 +60,7 @@ export default function Main(props) {
             </p>
           </footer>
 
-          <div className="buttons">
+          <div className="wrap-buttons">
             <button type="button">
               <img src={dislike} alt="Dislike" />
             </button>
@@ -79,7 +79,7 @@ export default function Main(props) {
             </p>
           </footer>
 
-          <div className="buttons">
+          <div className="wrap-buttons">
             <button type="button">
               <img src={dislike} alt="Dislike" />
             </button>
