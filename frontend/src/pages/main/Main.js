@@ -24,6 +24,14 @@ export default function Main(props) {
     //loadUsers();
   }, [props.match.params.routeId]); // if the second parameter was [], the useEffect will be run once
 
+  async function handleLike(id) {
+    console.log('like', id);
+  }
+
+  async function handleDislike(id) {
+    console.log('dislike', id);
+  }
+
   return (
     <div className="wrap-main">
       <h1>routeId: {props.match.params.routeId}</h1>
@@ -38,10 +46,10 @@ export default function Main(props) {
             </footer>
 
             <div className="wrap-buttons">
-              <button type="button">
+              <button type="button" onClick={() => handleDislike(user._id)}>
                 <img src={dislike} alt="Dislike" />
               </button>
-              <button type="button">
+              <button type="button" onClick={() => handleLike(user._id)}>
                 <img src={like} alt="Like" />
               </button>
             </div>
