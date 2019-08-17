@@ -1,0 +1,24 @@
+.wrap-main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.wrap-main ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* same thing: 1fr 1fr 1fr */
+    grid-gap: 30px;
+    margin-top: 30px;
+}
+
+.wrap-main ul li {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrap-main ul li img {
+    max-width: 100%;
+}
+

@@ -1,7 +1,92 @@
 import React from "react";
+import logo from "../../assets/logo.svg";
+import like from "../../assets/like.svg";
+import dislike from "../../assets/dislike.svg";
+import "./Main.css";
 
 export default function Main(props) {
   return (
-    <h1>routeId: {props.match.params.routeId}</h1>
+    <div className="wrap-main">
+      <h1>routeId: {props.match.params.routeId}</h1>
+      <img src={logo} alt="Tindev" />
+      <ul>
+        <li>
+          <img src="https://avatars2.githubusercontent.com/u/861751?v=4" />
+          <footer>
+            <strong>João Pedro Schmitz</strong>
+            <p>
+              A Front End developer that is an enthusiast of new technologies
+              and a JavaScript fan.
+            </p>
+          </footer>
+
+          <div className="buttons">
+            <button type="button">
+              <img src={dislike} alt="Dislike" />
+            </button>
+            <button type="button">
+              <img src={like} alt="Like" />
+            </button>
+          </div>
+        </li>
+        <li>
+          <img src="https://avatars2.githubusercontent.com/u/861751?v=4" />
+          <footer>
+            <strong>João Pedro Schmitz</strong>
+            <p>
+              A Front End developer that is an enthusiast of new technologies
+              and a JavaScript fan.
+            </p>
+          </footer>
+
+          <div className="buttons">
+            <button type="button">
+              <img src={dislike} alt="Dislike" />
+            </button>
+            <button type="button">
+              <img src={like} alt="Like" />
+            </button>
+          </div>
+        </li>
+        <li>
+          <img src="https://avatars2.githubusercontent.com/u/861751?v=4" />
+          <footer>
+            <strong>João Pedro Schmitz</strong>
+            <p>
+              A Front End developer that is an enthusiast of new technologies
+              and a JavaScript fan.
+            </p>
+          </footer>
+
+          <div className="buttons">
+            <button type="button">
+              <img src={dislike} alt="Dislike" />
+            </button>
+            <button type="button">
+              <img src={like} alt="Like" />
+            </button>
+          </div>
+        </li>
+        <li>
+          <img src="https://avatars2.githubusercontent.com/u/861751?v=4" />
+          <footer>
+            <strong>João Pedro Schmitz</strong>
+            <p>
+              A Front End developer that is an enthusiast of new technologies
+              and a JavaScript fan.
+            </p>
+          </footer>
+
+          <div className="buttons">
+            <button type="button">
+              <img src={dislike} alt="Dislike" />
+            </button>
+            <button type="button">
+              <img src={like} alt="Like" />
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
   );
 }
