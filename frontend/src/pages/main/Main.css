@@ -18,10 +18,15 @@
   flex-direction: column;
 }
 
-.wrap-main ul li img {
+.wrap-main ul li > img {
   max-width: 100%;
+  border-radius: 5px 40px 0 0;
 }
 
 .wrap-main ul li footer {
   flex: 1;
+  background: #FFF;
+  border: 1px solid #EEE;
+  padding: 15px 20px;
+  border-radius: 0 0 5px 40px;
 }
