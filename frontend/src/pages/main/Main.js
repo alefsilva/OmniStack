@@ -25,11 +25,11 @@ export default function Main(props) {
   }, [props.match.params.routeId]); // if the second parameter was [], the useEffect will be run once
 
   async function handleLike(id) {
-    console.log('like', id);
+    console.log("like", id);
   }
 
   async function handleDislike(id) {
-    console.log('dislike', id);
+    console.log("dislike", id);
   }
 
   return (
@@ -37,14 +37,16 @@ export default function Main(props) {
       <h1>routeId: {props.match.params.routeId}</h1>
       <img src={logo} alt="Tindev" />
       <ul>
-        {users.map(user => ( // (user, key)
-          <li key={user._id}> {/*key={key}*/}
+        {users.map((
+          user // (user, key)
+        ) => (
+          <li key={user._id}>
+            {/*key={key}*/}
             <img src={user.avatar} alt={user.name} />
             <footer>
               <strong>{user.name}</strong>
               <p>{user.bio}</p>
             </footer>
-
             <div className="wrap-buttons">
               <button type="button" onClick={() => handleDislike(user._id)}>
                 <img src={dislike} alt="Dislike" />
