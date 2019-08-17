@@ -26,6 +26,13 @@ export default function Main(props) {
 
   async function handleLike(id) {
     console.log("like", id);
+
+    await api.post(`devs/${id}/likes`, null, {
+      headers: {
+        user_id: props.match.params.routeId
+      }
+    });
+    setUsers(users.filter(user => user._id != id));
   }
 
   async function handleDislike(id) {
