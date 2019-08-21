@@ -14,7 +14,7 @@ export default function App() {
     <View style={styles.container}>
       {/*css inline {flex: 1, backgroundColor: '#7159c1'}*/}
       <Text style={styles.text}>Hello World</Text>
-      <Text style={styles.text}>Hello World</Text>
+      <Text style={styles.text}>Hello World2</Text>
     </View>
   )
 }
