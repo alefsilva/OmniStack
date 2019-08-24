@@ -18,7 +18,7 @@ export default createAppContainer(
    * createMaterialTopTabNavigator: create navigation by tabs on top
    * createDrawerNavigator: create a sidebar navigation
    */
-  createDrawerNavigator({
+  createSwitchNavigator({
     Login,
     Main,
   }),
