@@ -1,6 +1,8 @@
 import React from 'react';
 import {
   View,
+  KeyboardAvoidingView, // for iOS
+  Platform,
   StyleSheet,
   Image,
   Text,
@@ -12,7 +14,10 @@ import Logo from '../../assets/logo.png';
 
 export default function Login() {
   return (
-    <View style={styles.wrapContainer}>
+    <KeyboardAvoidingView
+      style={styles.wrapContainer}
+      behavior="padding"
+      enabled={Platform.OS == 'ios'}>
       <Image source={Logo} />
       <Text>
         {/*
@@ -21,6 +26,8 @@ export default function Login() {
          */}
       </Text>
       <TextInput
+        autoCapitalize="none" // for iOS
+        autoCorrect={false}
         placeholder="Digite seu usuário no GitHub"
         placeHolderTextColor="#999"
         style={styles.input}
@@ -28,7 +35,7 @@ export default function Login() {
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Enviar</Text>
       </TouchableOpacity>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
