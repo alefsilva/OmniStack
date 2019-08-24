@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   KeyboardAvoidingView, // for iOS
@@ -13,8 +13,10 @@ import {
 import Logo from '../../assets/logo.png';
 
 export default function Login(props) {
+  const [user, setUser] = useState('');
 
   function handleLogin() {
+    console.log('user', user);
     props.navigation.navigate('Main');
   }
 
@@ -33,9 +35,11 @@ export default function Login(props) {
       <TextInput
         autoCapitalize="none" // for iOS
         autoCorrect={false}
-        placeholder="Digite seu usuário no GitHub"
+        placeholder="Digite seu usuário no GitHub..."
         placeHolderTextColor="#999"
         style={styles.input}
+        value={user}
+        onChangeText={setUser}
       />
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Enviar</Text>
