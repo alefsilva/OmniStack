@@ -3,7 +3,8 @@ import {
   createSwitchNavigator,
   createStackNavigator,
   createBottomTabNavigator,
-  createMaterialTopTabNavigator
+  createMaterialTopTabNavigator,
+  createDrawerNavigator,
 } from 'react-navigation';
 
 import Login from './pages/login/Login';
@@ -14,9 +15,10 @@ export default createAppContainer(
    * createSwitchNavigator: without feedback for the user, without header, tabs, without can go back
    * createStackNavigator: with a header for back, title. It will stack the pages
    * createBottomTabNavigator: create navigation by tabs on bottom
-   * createMaterialTopTabNavigator: create navitation by tabs on top
+   * createMaterialTopTabNavigator: create navigation by tabs on top
+   * createDrawerNavigator: create a sidebar navigation
    */
-  createMaterialTopTabNavigator({
+  createDrawerNavigator({
     Login,
     Main,
   }),
