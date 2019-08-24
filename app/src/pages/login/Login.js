@@ -9,15 +9,21 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native'; // The default Button come with one default style according with the platform
+import api from '../../services/api';
 
 import Logo from '../../assets/logo.png';
 
 export default function Login(props) {
   const [user, setUser] = useState('');
 
-  function handleLogin() {
+  async function handleLogin() {
     console.log('user', user);
-    props.navigation.navigate('Main');
+    const response = await api.post('/devs', {
+      username: user
+    });
+    const { _id: id } = response.data;
+    console.log('id', id);
+    props.navigation.navigate('Main', { id });
   }
 
   return (
