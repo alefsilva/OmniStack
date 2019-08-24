@@ -12,7 +12,12 @@ import {
 
 import Logo from '../../assets/logo.png';
 
-export default function Login() {
+export default function Login(props) {
+
+  function handleLogin() {
+    props.navigation.navigate('Main');
+  }
+
   return (
     <KeyboardAvoidingView
       style={styles.wrapContainer}
@@ -32,7 +37,7 @@ export default function Login() {
         placeHolderTextColor="#999"
         style={styles.input}
       />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Enviar</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
