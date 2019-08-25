@@ -17,7 +17,7 @@ export default function Main() {
           />
           <Footer>
             <Name>Diego Fernandes</Name>
-            <Bio>
+            <Bio numberOfLines={3}>
               CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
               Native, NodeJS e todo ecossistema em torno dessas tecnologias.
             </Bio>
@@ -32,7 +32,7 @@ export default function Main() {
           />
           <Footer>
             <Name>Diego Fernandes</Name>
-            <Bio>
+            <Bio numberOfLines={3}>
               CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
               Native, NodeJS e todo ecossistema em torno dessas tecnologias.
             </Bio>
@@ -47,7 +47,7 @@ export default function Main() {
           />
           <Footer>
             <Name>Diego Fernandesz</Name>
-            <Bio>
+            <Bio numberOfLines={3}>
               CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
               Native, NodeJS e todo ecossistema em torno dessas tecnologias.
             </Bio>
