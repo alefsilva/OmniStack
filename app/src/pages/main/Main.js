@@ -1,21 +1,14 @@
 import React from 'react';
-import {SafeAreaView, View, Text, Image} from 'react-native';
+import {SafeAreaView, View, Text, Image, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 
 import Logo from '../../assets/logo.png';
-
-const StyledSafeAreaView = styled(SafeAreaView)`
-  flex: 1;
-  align-items: center;
-  justify-content: space-between;
-  background-color: papayawhip;
-`; // background-color: #f5f5f5
 
 export default function Main() {
   return (
     <StyledSafeAreaView>
       <Image source={Logo} />
-      <View>
+      <CardsContainer>
         <View>
           <Image
             source={{
@@ -23,7 +16,7 @@ export default function Main() {
             }}
           />
         </View>
-      </View>
+      </CardsContainer>
       <View>
         <Text>Diego Fernandes</Text>
         <Text>
@@ -35,3 +28,24 @@ export default function Main() {
     </StyledSafeAreaView>
   );
 }
+const StyledSafeAreaView = styled(SafeAreaView)`
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  background-color: papayawhip;
+`; // background-color: #f5f5f5
+
+const CardsContainer = styled(View)`
+  flex: 1;
+  justify-content: center;
+  max-height: 500px;
+  align-self: stretch;
+  background: #333;
+`;
+
+const styles = StyleSheet.create({
+  // CardsContainer: {
+  //   backgroundColor: '#333',
+  //   alignSelf: 'stretch', // this property was not working with styled-components =/
+  // }
+});
