@@ -63,19 +63,17 @@ export default function Main(props) {
     <StyledSafeAreaView>
       <Logo source={logo} />
       <CardsContainer>
-        {users.map(user => (
-          <Card key={user._id} style={[styles.Card, {zIndex: 3}]}>
+        <Text>users.length: {users.length}</Text>
+        {users.map((user, index) => (
+          <Card key={user._id} style={[styles.Card, users.length - index]}>
             <Avatar
               source={{
-                uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
+                uri: user.avatar,
               }}
             />
             <Footer>
-              <Name>Diego Fernandes - top</Name>
-              <Bio numberOfLines={3}>
-                CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
-                Native, NodeJS e todo ecossistema em torno dessas tecnologias.
-              </Bio>
+              <Name>{user.name}</Name>
+              <Bio numberOfLines={3}>{user.bio}</Bio>
             </Footer>
           </Card>
         ))}
