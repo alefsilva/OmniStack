@@ -63,20 +63,23 @@ export default function Main(props) {
     <StyledSafeAreaView>
       <Logo source={logo} />
       <CardsContainer>
-        <Text>users.length: {users.length}</Text>
-        {users.map((user, index) => (
-          <Card key={user._id} style={[styles.Card, users.length - index]}>
-            <Avatar
-              source={{
-                uri: user.avatar,
-              }}
-            />
-            <Footer>
-              <Name>{user.name}</Name>
-              <Bio numberOfLines={3}>{user.bio}</Bio>
-            </Footer>
-          </Card>
-        ))}
+        {users.length == 0 ? (
+          <EmptyText>Acabou :(</EmptyText>
+        ) : (
+          users.map((user, index) => (
+            <Card key={user._id} style={[styles.Card, users.length - index]}>
+              <Avatar
+                source={{
+                  uri: user.avatar,
+                }}
+              />
+              <Footer>
+                <Name>{user.name}</Name>
+                <Bio numberOfLines={3}>{user.bio}</Bio>
+              </Footer>
+            </Card>
+          ))
+        )}
       </CardsContainer>
       <ButtonsContainer>
         <StyledTouchableOpacity>
@@ -148,6 +151,13 @@ const Bio = styled(Text)`
   color: #999;
   margin-top: 5px;
   line-height: 18px;
+`;
+
+const EmptyText = styled(Text)`
+  align-self: center;
+  color: #999;
+  font-size: 24px;
+  font-weight: bold;
 `;
 
 const ButtonsContainer = styled(View)`
