@@ -1,10 +1,12 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {SafeAreaView, Text, Image} from 'react-native';
+
+import Logo from '../../assets/logo.png';
 
 export default function Main() {
   return (
-    <View>
-      <Text>Main works!</Text>
-    </View>
+    <SafeAreaView>
+      <Image source={Logo} />
+    </SafeAreaView>
   );
 }
