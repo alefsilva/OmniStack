@@ -23,6 +23,36 @@ export default function Main() {
             </Text>
           </View>
         </Card>
+
+        <Card>
+          <Image
+            source={{
+              uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
+            }}
+          />
+          <View>
+            <Text>Diego Fernandes</Text>
+            <Text>
+              CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
+              Native, NodeJS e todo ecossistema em torno dessas tecnologias.
+            </Text>
+          </View>
+        </Card>
+
+        <Card>
+          <Image
+            source={{
+              uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
+            }}
+          />
+          <View>
+            <Text>Diego Fernandes</Text>
+            <Text>
+              CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
+              Native, NodeJS e todo ecossistema em torno dessas tecnologias.
+            </Text>
+          </View>
+        </Card>
       </CardsContainer>
       <View />
     </StyledSafeAreaView>
@@ -44,10 +74,11 @@ const CardsContainer = styled(View)`
 `;
 
 const Card = styled(View)`
-  border: 2px solid #ddd;
+  border: 1px solid #ddd;
   margin: 30px;
   overflow: hidden;
   border-radius: 8px;
+  position: absolute;
 `;
 
 const styles = StyleSheet.create({
