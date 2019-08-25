@@ -76,8 +76,8 @@ const StyledSafeAreaView = styled(SafeAreaView)`
   flex: 1;
   align-items: center;
   justify-content: space-between;
-  background-color: papayawhip;
-`; // background-color: #f5f5f5
+  background-color: #f5f5f5;
+`;
 
 const Logo = styled(Image)`
   margin-top: 30;
@@ -88,7 +88,6 @@ const CardsContainer = styled(View)`
   align-self: stretch;
   justify-content: center;
   max-height: 500px;
-  background: #333;
 `;
 
 const Card = styled(View)`
@@ -135,7 +134,7 @@ const Bio = styled(Text)`
 `;
 
 const ButtonsContainer = styled(View)`
-  flexdirection: row;
+  flex-direction: row;
   margin-bottom: 30px;
 `;
 
