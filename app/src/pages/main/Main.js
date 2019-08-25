@@ -2,12 +2,12 @@ import React from 'react';
 import {SafeAreaView, View, Text, Image, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 
-import Logo from '../../assets/logo.png';
+import logo from '../../assets/logo.png';
 
 export default function Main() {
   return (
     <StyledSafeAreaView>
-      <Image source={Logo} />
+      <Logo source={logo} />
       <CardsContainer>
         <Card style={[styles.Card, { zIndex: 3 }]}>
           <Avatar
@@ -64,6 +64,10 @@ const StyledSafeAreaView = styled(SafeAreaView)`
   justify-content: space-between;
   background-color: papayawhip;
 `; // background-color: #f5f5f5
+
+const Logo = styled(Image)`
+  margin-top: 30;
+`;
 
 const CardsContainer = styled(View)`
   flex: 1;
