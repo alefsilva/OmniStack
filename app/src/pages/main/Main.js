@@ -10,7 +10,7 @@ export default function Main() {
       <Image source={Logo} />
       <CardsContainer>
         <Card>
-          <Image
+          <Avatar
             source={{
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
             }}
@@ -25,7 +25,7 @@ export default function Main() {
         </Card>
 
         <Card>
-          <Image
+          <Avatar
             source={{
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
             }}
@@ -40,7 +40,7 @@ export default function Main() {
         </Card>
 
         <Card>
-          <Image
+          <Avatar
             source={{
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
             }}
@@ -83,6 +83,11 @@ const Card = styled(View)`
   right: 0;
   bottom: 0;
   left: 0;
+`;
+
+const Avatar = styled(Image)`
+  flex: 1;
+  height: 300;
 `;
 
 const styles = StyleSheet.create({
