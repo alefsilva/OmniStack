@@ -34,18 +34,23 @@ export default function Main(props) {
     //loadUsers();
   }, [routeId]); // if the second parameter was [], the useEffect will be run once
 
-  async function handleLike(id) {
-    console.log('like', id);
+  async function handleLike() {
+    console.log('users', users);
+    const [user, ...rest] = users.reverse(); // the samething as user = users[0]; and the second params get the rest of the items
+    console.log('like', user._id);
 
-    await api.post(`devs/${id}/likes`, null, {
+    await api.post(`devs/${user._id}/likes`, null, {
       headers: {
         user_id: routeId,
       },
     });
-    setUsers(users.filter(user => user._id != id));
+    setUsers(rest); // the samething as users.filter(user => user._id != id)
+    console.log('users after', users);
   }
 
-  async function handleDislike(id) {
+  async function handleDislike() {
+    const [{_id: id}, ...rest] = users.reverse();
+
     console.log('dislike', id);
     await api.post(`devs/${id}/dislikes`, null, {
       headers: {
@@ -57,7 +62,8 @@ export default function Main(props) {
      * I can't change the useState users directly... users.push, users = []... no!
      * Use the setUsers instead.
      * */
-    setUsers(users.filter(user => user._id != id));
+    setUsers(rest);
+    console.log('users after', users);
   }
 
   async function handleLogout() {
@@ -90,10 +96,10 @@ export default function Main(props) {
         )}
       </CardsContainer>
       <ButtonsContainer>
-        <StyledTouchableOpacity>
+        <StyledTouchableOpacity onPress={handleDislike}>
           <Image source={dislike} />
         </StyledTouchableOpacity>
-        <StyledTouchableOpacity>
+        <StyledTouchableOpacity onPress={handleLike}>
           <Image source={like} />
         </StyledTouchableOpacity>
       </ButtonsContainer>

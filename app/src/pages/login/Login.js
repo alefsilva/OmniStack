@@ -18,22 +18,20 @@ export default function Login(props) {
   const [user, setUser] = useState('');
 
   useEffect(() => {
-    AsyncStorage.getItem('user')
-      .then(user => {
-        if(user)
-          props.navigation.navigate('Main', { user });
-      });
+    AsyncStorage.getItem('user').then(user => {
+      if (user) props.navigation.navigate('Main', {user});
+    });
   }, []);
 
   async function handleLogin() {
     console.log('user', user);
     const response = await api.post('/devs', {
-      username: user
+      username: user,
     });
-    const { _id: id } = response.data;
+    const {_id: id} = response.data;
     console.log('id', id);
     await AsyncStorage.setItem('user', id); // the second parameter must be an object
-    props.navigation.navigate('Main', { user: id });
+    props.navigation.navigate('Main', {user: id});
   }
 
   return (
@@ -94,6 +92,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
 });
