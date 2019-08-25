@@ -1,8 +1,10 @@
 import React from 'react';
-import {SafeAreaView, View, Text, Image, StyleSheet} from 'react-native';
+import {SafeAreaView, View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 
 import logo from '../../assets/logo.png';
+import dislike from '../../assets/dislike.png';
+import like from '../../assets/like.png';
 
 export default function Main() {
   return (
@@ -54,7 +56,14 @@ export default function Main() {
           </Footer>
         </Card>
       </CardsContainer>
-      <View />
+      <ButtonsContainer>
+        <StyledTouchableOpacity>
+          <Image source={dislike} />
+        </StyledTouchableOpacity>
+        <StyledTouchableOpacity>
+          <Image source={like} />
+        </StyledTouchableOpacity>
+      </ButtonsContainer>
     </StyledSafeAreaView>
   ); // className="bio" with styled components no work on react-native
 }
@@ -120,10 +129,42 @@ const Bio = styled(Text)`
   line-height: 18px;
 `;
 
+const ButtonsContainer = styled(View)`
+  flexDirection: row;
+  margin-bottom: 30px;
+`;
+
+const StyledTouchableOpacity = styled(TouchableOpacity)`
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+  elevation: 2;
+  shadow-color: #000;
+  shadow-opacity: 0.05;
+  shadow-radius: 2;
+  shadow-offset: {width: 0, height: 2};
+`; // box-shadow: 10px 5px 5px black; don't works
+
 const styles = StyleSheet.create({
-  Card: {}
+  Card: {},
   // CardsContainer: {
   //   backgroundColor: '#333',
   //   alignSelf: 'stretch', // this property was not working with styled-components =/
+  // }
+  // Button: {
+  //   elevation: 2, // shadow for android
+  //   shadowColor: '#000',
+
+  //   // shadow for ios like bellow
+  //   shadowOpacity: 0.05,
+  //   shadowRadius: 2,
+  //   shadowOffset: {
+  //     width: 0, // horizontally
+  //     height: 2, // vertically
+  //   }
   // }
 });
