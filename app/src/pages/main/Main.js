@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   View,
@@ -9,11 +9,56 @@ import {
 } from 'react-native';
 import styled from 'styled-components/native';
 
+import api from '../../services/api';
 import logo from '../../assets/logo.png';
 import dislike from '../../assets/dislike.png';
 import like from '../../assets/like.png';
 
-export default function Main() {
+export default function Main(props) {
+  const routeId = props.navigation.getParam('user');
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    (async function loadUsers() {
+      console.log("routeId", routeId);
+      const response = await api.get("/devs", {
+        headers: {
+          user_id: routeId
+        }
+      });
+      console.log("response.data", response.data);
+      setUsers(response.data);
+    })(); // it will execute this function automatically
+
+    //loadUsers();
+  }, [routeId]); // if the second parameter was [], the useEffect will be run once
+
+  async function handleLike(id) {
+    console.log("like", id);
+
+    await api.post(`devs/${id}/likes`, null, {
+      headers: {
+        user_id: routeId
+      }
+    });
+    setUsers(users.filter(user => user._id != id));
+  }
+
+  async function handleDislike(id) {
+    console.log("dislike", id);
+    await api.post(`devs/${id}/dislikes`, null, {
+      headers: {
+        user_id: routeId
+      }
+    }); // the second param of the method post is the body
+
+    /**
+     * I can't change the useState users directly... users.push, users = []... no!
+     * Use the setUsers instead.
+     * */
+    setUsers(users.filter(user => user._id != id));
+  }
+
   return (
     <StyledSafeAreaView>
       <Logo source={logo} />

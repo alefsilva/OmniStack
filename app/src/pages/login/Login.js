@@ -33,7 +33,7 @@ export default function Login(props) {
     const { _id: id } = response.data;
     console.log('id', id);
     await AsyncStorage.setItem('user', id); // the second parameter must be an object
-    props.navigation.navigate('Main', { id });
+    props.navigation.navigate('Main', { user: id });
   }
 
   return (
