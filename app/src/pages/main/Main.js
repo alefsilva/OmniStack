@@ -9,14 +9,14 @@ export default function Main() {
     <StyledSafeAreaView>
       <Image source={Logo} />
       <CardsContainer>
-        <Card>
+        <Card style={[styles.Card, { zIndex: 3 }]}>
           <Avatar
             source={{
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
             }}
           />
           <Footer>
-            <Name>Diego Fernandes</Name>
+            <Name>Diego Fernandes - top</Name>
             <Bio numberOfLines={3}>
               CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
               Native, NodeJS e todo ecossistema em torno dessas tecnologias.
@@ -24,14 +24,14 @@ export default function Main() {
           </Footer>
         </Card>
 
-        <Card>
+        <Card style={[styles.Card, { zIndex: 2 }]}>
           <Avatar
             source={{
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
             }}
           />
           <Footer>
-            <Name>Diego Fernandes</Name>
+            <Name>Diego Fernandes - middle</Name>
             <Bio numberOfLines={3}>
               CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
               Native, NodeJS e todo ecossistema em torno dessas tecnologias.
@@ -39,14 +39,14 @@ export default function Main() {
           </Footer>
         </Card>
 
-        <Card>
+        <Card style={[styles.Card, { zIndex: 1 }]}>
           <Avatar
             source={{
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
             }}
           />
           <Footer>
-            <Name>Diego Fernandesz</Name>
+            <Name>Diego Fernandes - footer</Name>
             <Bio numberOfLines={3}>
               CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
               Native, NodeJS e todo ecossistema em torno dessas tecnologias.
@@ -117,6 +117,7 @@ const Bio = styled(Text)`
 `;
 
 const styles = StyleSheet.create({
+  Card: {}
   // CardsContainer: {
   //   backgroundColor: '#333',
   //   alignSelf: 'stretch', // this property was not working with styled-components =/
