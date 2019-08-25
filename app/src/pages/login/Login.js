@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   KeyboardAvoidingView, // for iOS
@@ -10,11 +10,20 @@ import {
   TouchableOpacity,
 } from 'react-native'; // The default Button come with one default style according with the platform
 import api from '../../services/api';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import Logo from '../../assets/logo.png';
 
 export default function Login(props) {
   const [user, setUser] = useState('');
+
+  useEffect(() => {
+    AsyncStorage.getItem('user')
+      .then(user => {
+        if(user)
+          props.navigation.navigate('Main', { user });
+      });
+  }, []);
 
   async function handleLogin() {
     console.log('user', user);
@@ -23,6 +32,7 @@ export default function Login(props) {
     });
     const { _id: id } = response.data;
     console.log('id', id);
+    await AsyncStorage.setItem('user', id); // the second parameter must be an object
     props.navigation.navigate('Main', { id });
   }
 
