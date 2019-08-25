@@ -1,5 +1,12 @@
 import React from 'react';
-import {SafeAreaView, View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import styled from 'styled-components/native';
 
 import logo from '../../assets/logo.png';
@@ -11,7 +18,7 @@ export default function Main() {
     <StyledSafeAreaView>
       <Logo source={logo} />
       <CardsContainer>
-        <Card style={[styles.Card, { zIndex: 3 }]}>
+        <Card style={[styles.Card, {zIndex: 3}]}>
           <Avatar
             source={{
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
@@ -25,8 +32,7 @@ export default function Main() {
             </Bio>
           </Footer>
         </Card>
-
-        <Card style={[styles.Card, { zIndex: 2 }]}>
+        <Card style={[styles.Card, {zIndex: 2}]}>
           <Avatar
             source={{
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
@@ -40,8 +46,7 @@ export default function Main() {
             </Bio>
           </Footer>
         </Card>
-
-        <Card style={[styles.Card, { zIndex: 1 }]}>
+        <Card style={[styles.Card, {zIndex: 1}]}>
           <Avatar
             source={{
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
@@ -130,7 +135,7 @@ const Bio = styled(Text)`
 `;
 
 const ButtonsContainer = styled(View)`
-  flexDirection: row;
+  flexdirection: row;
   margin-bottom: 30px;
 `;
 
