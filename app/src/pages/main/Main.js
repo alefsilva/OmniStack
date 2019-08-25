@@ -16,11 +16,20 @@ export default function Main() {
     <StyledSafeAreaView>
       <Image source={Logo} />
       <View>
-        <Image source={{uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4'}} />
+        <View>
+          <Image
+            source={{
+              uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
+            }}
+          />
+        </View>
       </View>
       <View>
         <Text>Diego Fernandes</Text>
-        <Text>CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React Native, NodeJS e todo ecossistema em torno dessas tecnologias.</Text>
+        <Text>
+          CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React Native,
+          NodeJS e todo ecossistema em torno dessas tecnologias.
+        </Text>
       </View>
       <View />
     </StyledSafeAreaView>
