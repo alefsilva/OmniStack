@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import styled from 'styled-components/native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import api from '../../services/api';
 import logo from '../../assets/logo.png';
@@ -59,9 +60,16 @@ export default function Main(props) {
     setUsers(users.filter(user => user._id != id));
   }
 
+  async function handleLogout() {
+    await AsyncStorage.clear();
+    props.navigation.navigate('Login');
+  }
+
   return (
     <StyledSafeAreaView>
-      <Logo source={logo} />
+      <TouchableOpacity onPress={handleLogout}>
+        <Logo source={logo} />
+      </TouchableOpacity>
       <CardsContainer>
         {users.length == 0 ? (
           <EmptyText>Acabou :(</EmptyText>
