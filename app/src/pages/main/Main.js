@@ -95,14 +95,16 @@ export default function Main(props) {
           ))
         )}
       </CardsContainer>
-      <ButtonsContainer>
-        <StyledTouchableOpacity onPress={handleDislike}>
-          <Image source={dislike} />
-        </StyledTouchableOpacity>
-        <StyledTouchableOpacity onPress={handleLike}>
-          <Image source={like} />
-        </StyledTouchableOpacity>
-      </ButtonsContainer>
+      {users.length > 0 && (
+        <ButtonsContainer>
+          <StyledTouchableOpacity onPress={handleDislike}>
+            <Image source={dislike} />
+          </StyledTouchableOpacity>
+          <StyledTouchableOpacity onPress={handleLike}>
+            <Image source={like} />
+          </StyledTouchableOpacity>
+        </ButtonsContainer>
+      )}
     </StyledSafeAreaView>
   ); // className="bio" with styled components no work on react-native
 }
