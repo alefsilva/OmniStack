@@ -15,13 +15,13 @@ export default function Main() {
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
             }}
           />
-          <View>
+          <Footer>
             <Text>Diego Fernandes</Text>
             <Text>
               CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
               Native, NodeJS e todo ecossistema em torno dessas tecnologias.
             </Text>
-          </View>
+          </Footer>
         </Card>
 
         <Card>
@@ -30,13 +30,13 @@ export default function Main() {
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
             }}
           />
-          <View>
+          <Footer>
             <Text>Diego Fernandes</Text>
             <Text>
               CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
               Native, NodeJS e todo ecossistema em torno dessas tecnologias.
             </Text>
-          </View>
+          </Footer>
         </Card>
 
         <Card>
@@ -45,13 +45,13 @@ export default function Main() {
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
             }}
           />
-          <View>
+          <Footer>
             <Text>Diego Fernandes</Text>
             <Text>
               CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
               Native, NodeJS e todo ecossistema em torno dessas tecnologias.
             </Text>
-          </View>
+          </Footer>
         </Card>
       </CardsContainer>
       <View />
@@ -88,6 +88,11 @@ const Card = styled(View)`
 const Avatar = styled(Image)`
   flex: 1;
   height: 300;
+`;
+
+const Footer = styled(View)`
+  background-color: #fff;
+  padding: 15px 20px;
 `;
 
 const styles = StyleSheet.create({
