@@ -16,11 +16,11 @@ export default function Main() {
             }}
           />
           <Footer>
-            <Text>Diego Fernandes</Text>
-            <Text>
+            <Name>Diego Fernandes</Name>
+            <Bio>
               CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
               Native, NodeJS e todo ecossistema em torno dessas tecnologias.
-            </Text>
+            </Bio>
           </Footer>
         </Card>
 
@@ -31,11 +31,11 @@ export default function Main() {
             }}
           />
           <Footer>
-            <Text>Diego Fernandes</Text>
-            <Text>
+            <Name>Diego Fernandes</Name>
+            <Bio>
               CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
               Native, NodeJS e todo ecossistema em torno dessas tecnologias.
-            </Text>
+            </Bio>
           </Footer>
         </Card>
 
@@ -46,17 +46,17 @@ export default function Main() {
             }}
           />
           <Footer>
-            <Text>Diego Fernandes</Text>
-            <Text>
+            <Name>Diego Fernandesz</Name>
+            <Bio>
               CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
               Native, NodeJS e todo ecossistema em torno dessas tecnologias.
-            </Text>
+            </Bio>
           </Footer>
         </Card>
       </CardsContainer>
       <View />
     </StyledSafeAreaView>
-  );
+  ); // className="bio" with styled components no work on react-native
 }
 const StyledSafeAreaView = styled(SafeAreaView)`
   flex: 1;
@@ -90,9 +90,30 @@ const Avatar = styled(Image)`
   height: 300;
 `;
 
+// const StyledText = styled(Text)`
+// `;
+
 const Footer = styled(View)`
   background-color: #fff;
   padding: 15px 20px;
+`;
+
+/**
+ * ${StyledText} {
+    font-weight: bold;
+  } don't work
+ */
+
+const Name = styled(Text)`
+  font-size: 16px;
+  font-weight: bold;
+`;
+
+const Bio = styled(Text)`
+  font-size: 14px;
+  color: #999;
+  margin-top: 5px;
+  line-height: 18px;
 `;
 
 const styles = StyleSheet.create({
