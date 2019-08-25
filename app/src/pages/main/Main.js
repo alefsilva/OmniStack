@@ -9,21 +9,21 @@ export default function Main() {
     <StyledSafeAreaView>
       <Image source={Logo} />
       <CardsContainer>
-        <View>
+        <Card>
           <Image
             source={{
               uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
             }}
           />
-        </View>
+          <View>
+            <Text>Diego Fernandes</Text>
+            <Text>
+              CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
+              Native, NodeJS e todo ecossistema em torno dessas tecnologias.
+            </Text>
+          </View>
+        </Card>
       </CardsContainer>
-      <View>
-        <Text>Diego Fernandes</Text>
-        <Text>
-          CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React Native,
-          NodeJS e todo ecossistema em torno dessas tecnologias.
-        </Text>
-      </View>
       <View />
     </StyledSafeAreaView>
   );
@@ -37,10 +37,17 @@ const StyledSafeAreaView = styled(SafeAreaView)`
 
 const CardsContainer = styled(View)`
   flex: 1;
+  align-self: stretch;
   justify-content: center;
   max-height: 500px;
-  align-self: stretch;
   background: #333;
+`;
+
+const Card = styled(View)`
+  border: 2px solid #ddd;
+  margin: 30px;
+  overflow: hidden;
+  border-radius: 8px;
 `;
 
 const styles = StyleSheet.create({
