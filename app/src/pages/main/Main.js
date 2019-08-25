@@ -20,13 +20,13 @@ export default function Main(props) {
 
   useEffect(() => {
     (async function loadUsers() {
-      console.log("routeId", routeId);
-      const response = await api.get("/devs", {
+      console.log('routeId', routeId);
+      const response = await api.get('/devs', {
         headers: {
-          user_id: routeId
-        }
+          user_id: routeId,
+        },
       });
-      console.log("response.data", response.data);
+      console.log('response.data', response.data);
       setUsers(response.data);
     })(); // it will execute this function automatically
 
@@ -34,22 +34,22 @@ export default function Main(props) {
   }, [routeId]); // if the second parameter was [], the useEffect will be run once
 
   async function handleLike(id) {
-    console.log("like", id);
+    console.log('like', id);
 
     await api.post(`devs/${id}/likes`, null, {
       headers: {
-        user_id: routeId
-      }
+        user_id: routeId,
+      },
     });
     setUsers(users.filter(user => user._id != id));
   }
 
   async function handleDislike(id) {
-    console.log("dislike", id);
+    console.log('dislike', id);
     await api.post(`devs/${id}/dislikes`, null, {
       headers: {
-        user_id: routeId
-      }
+        user_id: routeId,
+      },
     }); // the second param of the method post is the body
 
     /**
@@ -63,48 +63,22 @@ export default function Main(props) {
     <StyledSafeAreaView>
       <Logo source={logo} />
       <CardsContainer>
-        <Card style={[styles.Card, {zIndex: 3}]}>
-          <Avatar
-            source={{
-              uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
-            }}
-          />
-          <Footer>
-            <Name>Diego Fernandes - top</Name>
-            <Bio numberOfLines={3}>
-              CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
-              Native, NodeJS e todo ecossistema em torno dessas tecnologias.
-            </Bio>
-          </Footer>
-        </Card>
-        <Card style={[styles.Card, {zIndex: 2}]}>
-          <Avatar
-            source={{
-              uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
-            }}
-          />
-          <Footer>
-            <Name>Diego Fernandes - middle</Name>
-            <Bio numberOfLines={3}>
-              CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
-              Native, NodeJS e todo ecossistema em torno dessas tecnologias.
-            </Bio>
-          </Footer>
-        </Card>
-        <Card style={[styles.Card, {zIndex: 1}]}>
-          <Avatar
-            source={{
-              uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
-            }}
-          />
-          <Footer>
-            <Name>Diego Fernandes - footer</Name>
-            <Bio numberOfLines={3}>
-              CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
-              Native, NodeJS e todo ecossistema em torno dessas tecnologias.
-            </Bio>
-          </Footer>
-        </Card>
+        {users.map(user => (
+          <Card key={user._id} style={[styles.Card, {zIndex: 3}]}>
+            <Avatar
+              source={{
+                uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4',
+              }}
+            />
+            <Footer>
+              <Name>Diego Fernandes - top</Name>
+              <Bio numberOfLines={3}>
+                CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React
+                Native, NodeJS e todo ecossistema em torno dessas tecnologias.
+              </Bio>
+            </Footer>
+          </Card>
+        ))}
       </CardsContainer>
       <ButtonsContainer>
         <StyledTouchableOpacity>
