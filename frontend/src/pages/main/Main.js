@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import io from 'socket.io-client';
 
 import logo from '../../assets/logo.svg';
 import like from '../../assets/like.svg';
@@ -25,6 +26,10 @@ export default function Main(props) {
 
     //loadUsers();
   }, [props.match.params.routeId]); // if the second parameter was [], the useEffect will be run once
+
+  useEffect(() => {
+    const socket = io('http://localhost:7777');
+  }, [props.match.params.routeId]);
 
   async function handleLike(id) {
     console.log('like', id);
