@@ -29,6 +29,11 @@ export default function Main(props) {
 
   useEffect(() => {
     const socket = io('http://localhost:7777');
+    setTimeout(() => {
+      socket.emit('hello', {
+        message: 'Hello World'
+      });
+    }, 3000);
   }, [props.match.params.routeId]);
 
   async function handleLike(id) {

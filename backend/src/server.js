@@ -11,6 +11,10 @@ const io = require("socket.io")(server);
 io.on("connection", socket => {
   // each new connection has a unique id that is socket.id
   console.log("New connection", socket.id);
+
+  socket.on('hello', request => {
+    console.log('request: ', request);
+  });
 });
 
 mongoose.connect(
