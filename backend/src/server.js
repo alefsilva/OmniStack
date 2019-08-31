@@ -13,8 +13,14 @@ io.on("connection", socket => {
   console.log("New connection", socket.id);
 
   socket.on('hello', request => {
-    console.log('request: ', request);
+    console.log('front request: ', request);
   });
+
+  setTimeout(() => {
+    socket.emit('world', {
+      message: 'OmniStack'
+    }, 5000);
+  }, 5000);
 });
 
 mongoose.connect(

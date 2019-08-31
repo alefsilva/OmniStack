@@ -34,6 +34,10 @@ export default function Main(props) {
         message: 'Hello World'
       });
     }, 3000);
+
+    socket.on('world', request => {
+      console.log('back request: ', request);
+    });
   }, [props.match.params.routeId]);
 
   async function handleLike(id) {
