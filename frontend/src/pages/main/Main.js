@@ -28,7 +28,10 @@ export default function Main(props) {
   }, [props.match.params.routeId]); // if the second parameter was [], the useEffect will be run once
 
   useEffect(() => {
-    const socket = io('http://localhost:7777');
+    const socket = io('http://localhost:7777', {
+      query: { user_id: props.match.params.routeId }
+    });
+
     setTimeout(() => {
       socket.emit('hello', {
         message: 'Hello World'
