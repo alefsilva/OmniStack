@@ -9,7 +9,7 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 /* 
-The better way is using database key/value such as redis or the mongoDB to store which user id is which socket id. But we'll store in the node memory.
+The better way is using database key/value such as redis or the mongoDB to store which user id is which socket id. But we'll store it in the node memory.
 
 So, in one deploy application it's not recommended because one application must have a server totally stateless.
 
@@ -59,6 +59,13 @@ mongoose.connect(
     useNewUrlParser: true
   }
 );
+
+// middleware: is an interceptor. We're using it to pass the connectedUsers for the controller
+app.use((req, res, next) => {
+  req.io = io;
+  req.connectedUsers = connectedUsers;
+  return next();
+});
 
 app.use(cors());
 app.use(express.json());
