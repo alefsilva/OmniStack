@@ -6,11 +6,13 @@ import logo from '../../assets/logo.svg';
 import like from '../../assets/like.svg';
 import dislike from '../../assets/dislike.svg';
 import './Main.css';
+import itsAMatch from '../../assets/itsamatch.png';
 
 import api from '../../services/Api';
 
 export default function Main(props) {
   const [users, setUsers] = useState([]);
+  const [matchDev, setMatchDev] = useState(true);
 
   useEffect(() => {
     (async function loadUsers() {
@@ -44,7 +46,7 @@ export default function Main(props) {
 
     socket.on('match', dev => {
       console.log('dev: ', dev);
-    })
+    });
   }, [props.match.params.routeId]);
 
   async function handleLike(id) {
@@ -103,6 +105,19 @@ export default function Main(props) {
         </ul>
       ) : (
         <div className="empty">Acabou :(</div>
+      )}
+      {matchDev && (
+        <div className="match-container">
+          <img src={itsAMatch} alt="it's a match" />
+          <img
+            className="avatar"
+            src="https://avatars2.githubusercontent.com/u/861751?v=4"
+            alt="Avatar"
+          />
+          <strong>Robson Marques</strong>
+          <bio>Co-founder & CEO @Rocketseat </bio>
+          <button type="submit">FECHAR</button>
+        </div>
       )}
     </div>
   );
