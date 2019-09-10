@@ -41,6 +41,10 @@ export default function Main(props) {
     socket.on('world', request => {
       console.log('back request: ', request);
     });
+
+    socket.on('match', dev => {
+      console.log('dev: ', dev);
+    })
   }, [props.match.params.routeId]);
 
   async function handleLike(id) {
