@@ -116,7 +116,7 @@ export default function Main(props) {
           />
           <strong>Robson Marques</strong>
           <p>Co-founder & CEO @Rocketseat </p>
-          <button type="submit">FECHAR</button>
+          <button type="submit" onClick={() => setMatchDev(null)}>FECHAR</button>
         </div>
       )}
     </div>
