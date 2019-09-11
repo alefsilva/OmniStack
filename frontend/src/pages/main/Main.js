@@ -115,7 +115,7 @@ export default function Main(props) {
             alt="Avatar"
           />
           <strong>Robson Marques</strong>
-          <bio>Co-founder & CEO @Rocketseat </bio>
+          <p>Co-founder & CEO @Rocketseat </p>
           <button type="submit">FECHAR</button>
         </div>
       )}
