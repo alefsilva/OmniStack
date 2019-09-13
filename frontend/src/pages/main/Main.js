@@ -12,7 +12,7 @@ import api from '../../services/Api';
 
 export default function Main(props) {
   const [users, setUsers] = useState([]);
-  const [matchDev, setMatchDev] = useState(true);
+  const [matchDev, setMatchDev] = useState(false);
 
   useEffect(() => {
     (async function loadUsers() {
@@ -46,6 +46,7 @@ export default function Main(props) {
 
     socket.on('match', dev => {
       console.log('dev: ', dev);
+      setMatchDev(dev);
     });
   }, [props.match.params.routeId]);
 
@@ -111,11 +112,11 @@ export default function Main(props) {
           <img src={itsAMatch} alt="it's a match" />
           <img
             className="avatar"
-            src="https://avatars2.githubusercontent.com/u/861751?v=4"
+            src={matchDev.avatar}
             alt="Avatar"
           />
-          <strong>Robson Marques</strong>
-          <p>Co-founder & CEO @Rocketseat </p>
+          <strong>{matchDev.name}</strong>
+          <p>{matchDev.bio}</p>
           <button type="submit" onClick={() => setMatchDev(null)}>FECHAR</button>
         </div>
       )}
