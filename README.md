@@ -6,3 +6,17 @@ A aplicação é o Tindev. Um modelo de "Tinder" entre desenvolvedores utilizand
 
 ## Conhecimentos
 Criação do Backend em NodeJS, integração com API interna e externa (axios), React Hooks (useEffect, useState), props, componentes.
+
+## Screenshots
+
+### Login
+![alt text](/screenshots/login.png)
+
+### Main
+![alt text](/screenshots/main.png)
+
+### It's a Match!
+![alt text](/screenshots/itsAMatch.png)
+
+### Code
+![alt text](/screenshots/code.png)
