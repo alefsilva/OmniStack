@@ -20,7 +20,7 @@ import itsAMatch from '../../assets/itsamatch.png';
 export default function Main(props) {
   const routeId = props.navigation.getParam('user');
   const [users, setUsers] = useState([]);
-  const [matchDev, setMatchDev] = useState(true);
+  const [matchDev, setMatchDev] = useState();
 
   useEffect(() => {
     (async function loadUsers() {
@@ -132,10 +132,10 @@ export default function Main(props) {
 
       {matchDev && (
         <View style={styles.matchContainer}>
-          <Image source={itsAMatch} />
-          <Image style={styles.matchAvatar} source={{ uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4'}} />
-          <Text style={styles.matchName}>Diego Fernandes</Text>
-          <Text style={styles.matchBio}>CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React Native, NodeJS e todo ecossistema em torno dessas tecnologias.</Text>
+          <Image style={styles.matchImage} source={itsAMatch} />
+          <Image style={styles.matchAvatar} source={{ uri: matchDev.avatar }} />
+          <Text style={styles.matchName}>{matchDev.name}</Text>
+          <Text style={styles.matchBio}>{matchDev.bio}</Text>
           <TouchableOpacity onPress={() => setMatchDev(false)}>
             <Text style={styles.closeMatch}>FECHAR</Text>
           </TouchableOpacity>
@@ -246,7 +246,42 @@ const styles = StyleSheet.create({
     }
      */
     ...StyleSheet.absoluteFillObject, // the symbol ... copy all proprieties from absoluteFillObject into matchContainer
-    backgroundColor: 'rgba(0, 0, 0, 0.8)'
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 3,
+  },
+  matchImage: {
+    height: 60,
+    resizeMode: 'contain' // resize proportionally
+  },
+  matchAvatar: {
+    width: 160,
+    height: 160,
+    borderRadius: 80,
+    borderWidth: 5,
+    borderColor: '#FFF',
+    marginVertical: 30, // margin top and bottom of 30px
+  },
+  matchName: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    color: '#FFF'
+  },
+  matchBio: {
+    marginTop: 10,
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.8)',
+    lineHeight: 24,
+    textAlign: 'center',
+    paddingHorizontal: 30
+  },
+  closeMatch: {
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.8)',
+    textAlign: 'center',
+    marginTop: 30,
+    fontWeight: 'bold'
   }
   // CardsContainer: {
   //   backgroundColor: '#333',
