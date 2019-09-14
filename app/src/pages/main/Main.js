@@ -234,6 +234,20 @@ const StyledTouchableOpacity = styled(TouchableOpacity)`
 
 const styles = StyleSheet.create({
   Card: {},
+  matchContainer: {
+    /**
+     * The object below contains a few styles
+     * interface AbsoluteFillStyle {
+        position: "absolute";
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+     */
+    ...StyleSheet.absoluteFillObject, // the symbol ... copy all proprieties from absoluteFillObject into matchContainer
+    backgroundColor: 'rgba(0, 0, 0, 0.8)'
+  }
   // CardsContainer: {
   //   backgroundColor: '#333',
   //   alignSelf: 'stretch', // this property was not working with styled-components =/
