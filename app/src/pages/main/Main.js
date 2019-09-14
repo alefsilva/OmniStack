@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import io from 'socket.io-client';
 import {
   SafeAreaView,
   View,
@@ -14,10 +15,12 @@ import api from '../../services/api';
 import logo from '../../assets/logo.png';
 import dislike from '../../assets/dislike.png';
 import like from '../../assets/like.png';
+import itsAMatch from '../../assets/itsamatch.png';
 
 export default function Main(props) {
   const routeId = props.navigation.getParam('user');
   const [users, setUsers] = useState([]);
+  const [matchDev, setMatchDev] = useState(true);
 
   useEffect(() => {
     (async function loadUsers() {
@@ -33,6 +36,27 @@ export default function Main(props) {
 
     //loadUsers();
   }, [routeId]); // if the second parameter was [], the useEffect will be run once
+
+  useEffect(() => {
+    const socket = io('http://localhost:7777', {
+      query: { user_id: routeId }
+    });
+
+    setTimeout(() => {
+      socket.emit('hello', {
+        message: 'Hello World'
+      });
+    }, 3000);
+
+    socket.on('world', request => {
+      console.log('back request: ', request);
+    });
+
+    socket.on('match', dev => {
+      console.log('dev: ', dev);
+      setMatchDev(dev);
+    });
+  }, [routeId]);
 
   async function handleLike() {
     console.log('users', users);
@@ -104,6 +128,18 @@ export default function Main(props) {
             <Image source={like} />
           </StyledTouchableOpacity>
         </ButtonsContainer>
+      )}
+
+      {matchDev && (
+        <View style={styles.matchContainer}>
+          <Image source={itsAMatch} />
+          <Image style={styles.matchAvatar} source={{ uri: 'https://avatars2.githubusercontent.com/u/2254731?v=4'}} />
+          <Text style={styles.matchName}>Diego Fernandes</Text>
+          <Text style={styles.matchBio}>CTO na @Rocketseat. Apaixonado por Javascript, ReactJS, React Native, NodeJS e todo ecossistema em torno dessas tecnologias.</Text>
+          <TouchableOpacity onPress={() => setMatchDev(false)}>
+            <Text style={styles.closeMatch}>FECHAR</Text>
+          </TouchableOpacity>
+        </View>
       )}
     </StyledSafeAreaView>
   ); // className="bio" with styled components no work on react-native
